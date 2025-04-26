@@ -6,7 +6,6 @@
  * @author zsh
  */
 
-<<<<<<< HEAD
 import React from 'react';
 import type { PropsWithChildren } from 'react';
 import {
@@ -14,22 +13,6 @@ import {
     StatusBar,
     StyleSheet,
     Text,
-=======
-import React, { useState } from 'react';
-import type { PropsWithChildren } from 'react';
-import {
-    Button,
-    FlatList,
-    Image,
-    Platform,
-    ScrollView,
-    SectionList,
-    StatusBar,
-    StyleSheet,
-    Text,
-    TextInput,
-    ToastAndroid,
->>>>>>> e1431e2c0242f7c968f57aaff725e7566ea6c492
     useColorScheme,
     View,
 } from 'react-native';
@@ -89,7 +72,6 @@ function App(): React.JSX.Element {
      * You can read more about it here:
      * https://github.com/react-native-community/discussions-and-proposals/discussions/827
      */
-<<<<<<< HEAD
     const safePadding = '5%';
 
     return (
@@ -109,7 +91,7 @@ function App(): React.JSX.Element {
                         paddingHorizontal: safePadding,
                         paddingBottom: safePadding,
                     }}>
-                    <Section title="Step One">
+                    <Section title="Step One111111">
                         Edit <Text style={styles.highlight}>App.tsx</Text> to change this
                         screen and then come back to see your edits.
                     </Section>
@@ -126,47 +108,6 @@ function App(): React.JSX.Element {
                 </View>
             </ScrollView>
         </View>
-=======
-    const logo = {
-        uri: 'https://reactnative.dev/img/tiny_logo.png',
-        width: 64,
-        height: 64,
-    };
-    return (
-        // <FlatList style={{
-        //     backgroundColor: "#0F0"
-        // }} data={[
-        //     { key: "Name" },
-        //     { key: "Name1" },
-        //     { key: "Name2" },
-        // ]}
-        //     renderItem={({ item }) => <Text style={{
-        //         backgroundColor: Colors.lighter,
-        //         marginBottom: 12
-        //     }}>{item.key}</Text>}
-        // />
-        <>
-            <SectionList
-                sections={[
-                    { title: "D", data: ["Tom", "Jack"] },
-                    { title: "E", data: ["Tom1", "Jack1"] },
-                ]}
-                renderItem={({ item }) => <Text>{item}</Text>}
-                renderSectionHeader={({ section }) => <Text style={{
-                    backgroundColor: "#0D0"
-                }}>{section.title}</Text>}
-                keyExtractor={index => index}
-            />
-            <Button title='Click' onPress={ () =>
-                console.log(`
-                    os: ${Platform.OS}
-                    version: ${Platform.Version}
-                    constants: ${Platform.constants.reactNativeVersion.major}
-                `)
-            }/>
-        </>
-        // npx react-native run-android
->>>>>>> e1431e2c0242f7c968f57aaff725e7566ea6c492
     );
 }
 
