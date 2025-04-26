@@ -4,7 +4,6 @@ plugins{
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.facebook.react")
-    kotlin("plugin.serialization") version "2.1.10"
 }
 
 /**
@@ -122,8 +121,9 @@ android {
 }
 val hermesEnabled: Boolean = project.properties["hermesEnabled"].toString().toBoolean()
 dependencies {
+    // https://mvnrepository.com/artifact/com.facebook.fresco/animated-gif
+    implementation("com.facebook.fresco:animated-gif:3.6.0")
     // The version of react-native is set by the React Native Gradle Plugin
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1")
     implementation("com.facebook.react:react-android")
     if (hermesEnabled) {
         implementation("com.facebook.react:hermes-android")

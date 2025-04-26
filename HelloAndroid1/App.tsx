@@ -71,28 +71,72 @@ function App(): React.JSX.Element {
         width: 64,
         height: 64,
     };
-    function hello(){
+    function hello() {
         HelloModule.getName("zshhh")
         HelloModule.getNameWithPromise(false)
-        .then((response: string) => {
-            console.log(`response: ${response}`)
-        })
-        .catch((error: { message: string }) => {
-            console.error(error.message)
-        })
+            .then((response: string) => {
+                console.log(`response: ${response}`)
+            })
+            .catch((error: { message: string }) => {
+                console.error(error.message)
+            })
         HelloModule.getNameWithPromise(true)
-        .then((response: string) => {
-            console.log(`response: ${response}`)
-        })
-        .catch((error: { message: string }) => {
-            console.error(error.message)
-        })
+            .then((response: string) => {
+                console.log(`response: ${response}`)
+            })
+            .catch((error: { message: string }) => {
+                console.error(error.message)
+            })
     }
     return (
         <>
             <Text onPress={(event) => {
-                hello()
-            }}>Hello11</Text>
+                HelloModule.getName("zshhh")
+            }}>按钮1</Text>
+            <Text onPress={(event) => {
+                HelloModule.getNameWithPromise(false)
+                    .then((response: string) => {
+                        console.log(`response: ${response}`)
+                    })
+                    .catch((error: { code: String, message: string }) => {
+                        console.error(`${error.code}, ${error.message}`)
+                    })
+                HelloModule.getNameWithPromise(true)
+                    .then((response: string) => {
+                        console.log(`response: ${response}`)
+                    })
+                    .catch((error: { message: string }) => {
+                        console.error(error.message)
+                    })
+            }}>按钮2</Text>
+            <Text onPress={(event) => {
+                const data = {
+                    name: "zsh",
+                    age: "18",
+                    error: `Error:
+                        at line1
+                        at line2`,
+                }
+                HelloModule.sendMap(JSON.stringify(data))
+            }}>按钮3</Text>
+            <Text style={{
+                backgroundColor: "pink",
+                width: "10%",
+                padding: 10,
+            }} onPress={(event) => {
+                const data = {
+                    name: "zsh",
+                    age: "18",
+                    error: `Error:
+                        at line1
+                        at line2`,
+                }
+                HelloModule.sendRealMap(data).then( (response: boolean) =>
+                    console.log(`result: ${response}`)
+                ).catch((error: { message: string }) => {
+                    console.error(`error: ${error.message}`)
+                })
+            }}>按钮4</Text>
         </>
         // npx react-native run-android
     );
