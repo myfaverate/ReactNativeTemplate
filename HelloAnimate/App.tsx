@@ -30,7 +30,7 @@ const Stack = createNativeStackNavigator({
         Detail: {
             screen: DetailScreen,
             options: {
-                headerRight: () => (
+                headerRight: () => (    
                     <Text onPress={() => Alert.alert("Hello Alert")}>Hello</Text>
                 ),
             }
