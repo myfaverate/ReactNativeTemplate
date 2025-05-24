@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "dating_software",
-    "slug": "dating_software",
+    "name": "hello_picture",
+    "slug": "hello_picture",
     "version": "1.0.0",
-    "orientation": "default",
+    "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "datingsoftware",
+    "scheme": "hellopicture",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -16,7 +16,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.itguoke.hello_picture"
     },
     "web": {
       "bundler": "metro",
