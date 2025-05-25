@@ -11,7 +11,7 @@ export default function App() {
     const navigation = useNavigation<IndexScreenNavigationProp>()
     return (
         <>
-        <Redirect href="/screen/login/LoginScreen"/>
+        <Redirect href="/screen/user/UserInfoScreen"/>
             {/* <ThemedText onPress={() => {
                 navigation.navigate("(tabs)")
             }}>Tabsw</ThemedText>
@@ -24,3 +24,7 @@ export default function App() {
         </>
     )
 }   
+
+/**
+ * https://www.bilibili.com/video/BV1e5411L7VV?spm_id_from=333.788.player.switch&vd_source=fb5fc0881b2bb1a411566e5b2f1c7c7e&p=49
+ */

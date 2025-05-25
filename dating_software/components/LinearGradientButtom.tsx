@@ -8,6 +8,7 @@ type LinearGradientButtonProps = {
     colors: readonly [ColorValue, ColorValue, ...ColorValue[]],
     start?: LinearGradientPoint | null,
     end?: LinearGradientPoint | null,
+    disabled?: boolean,
     onPress?: () => void,
 }
 
@@ -19,6 +20,7 @@ export default function LinearGradientButton({
     end,
     colors,
     onPress,
+    disabled = false,
 }: LinearGradientButtonProps) {
     return (
         <LinearGradient
@@ -27,7 +29,7 @@ export default function LinearGradientButton({
             end={end}
             style={linearGradientStyle}
         >
-            <Text onPress={onPress} style={textStyle}>{text}</Text>
+            <Text disabled={disabled} onPress={onPress} style={textStyle}>{text}</Text>
         </LinearGradient>
     )
 }

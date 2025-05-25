@@ -6,3 +6,6 @@ export interface Result<T>{
 export interface AuthCodeBean{
     code: string
 }
+export interface UserInfoBean{
+    isNew: boolean
+}
