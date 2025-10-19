@@ -1,13 +1,16 @@
 import { manXml, womanXml } from "@/app/fonts/iconSvg";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
+import DateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
 import { Input } from "@rneui/themed";
 import { useState } from "react";
 import { Platform, ScrollView, StyleSheet, TouchableOpacity } from "react-native";
 import { EdgeInsets, useSafeAreaInsets } from "react-native-safe-area-context";
 import * as Svg from 'react-native-svg';
-import DateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
-import { Keyboard } from "react-native";
+import locationService from "@/app/utils/geo"
+import { modelName } from "expo-device";
+import { Picker } from "@react-native-picker/picker";
+import cities from "@/app/res/city.json"
 
 
 export default function UserInfoScreen() {
@@ -27,6 +30,14 @@ export default function UserInfoScreen() {
         setBirthday(`${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`)
         console.log(`${Platform.OS}: timestamp: ${event.nativeEvent.timestamp}, selectedDate: ${JSON.stringify(selectedDate)}`)
     };
+
+    const [city, setCity] = useState("")
+
+    const [selectedLanguage, setSelectedLanguage] = useState();
+
+    const [province, setProvince] = useState(Object.keys(cities)[0]);
+
+
     return (
         <ScrollView style={{
             flex: 1,
@@ -47,14 +58,19 @@ export default function UserInfoScreen() {
                 onChangeText={(name) => setNickName(name)}
             />
 
-            <Input
-                editable={Platform.OS === "ios" ? false : true}
-                onPressIn={() => {
-                    setShow(true)
-                }}
-                value={birthday}
-                placeholder="设置生日"
-                style={styles.birthday} />
+            {/* 1 */}
+            <TouchableOpacity onPress={() => {
+                setShow(true)
+                console.log(`${Platform.OS} ${modelName} onPress...`)
+            }}>
+                {/* 有意图打开系统控件 */}
+                <Input
+                    pointerEvents="none"
+                    disabled={true}
+                    value={birthday}
+                    placeholder="设置生日"
+                    style={styles.birthday} />
+            </TouchableOpacity>
 
             {show && <DateTimePicker
                 value={date}
@@ -63,6 +79,53 @@ export default function UserInfoScreen() {
                 minimumDate={new Date(1900, 1, 1)}
                 onChange={onChange}
             />}
+            {/* <ThemedText onPress={() => {
+                console.log(`location...`)
+                locationService.getCityLocation1().then(location => {
+                    console.log(`${Platform.OS} ${modelName} location: ${location}`)
+                })
+            }}>获取地理位置</ThemedText> */}
+            {/* 2 */}
+            <TouchableOpacity onPress={() => {
+                console.log(`${Platform.OS} ${modelName} click...`)
+            }}>
+                <Input
+                    onPress={() => {
+                        console.log(`${Platform.OS} ${modelName} click...`)
+                    }}
+                    value={`当前定位: ${city}`}
+                    style={{
+                        color: "#666"
+                    }}
+                    disabled={true}
+                />
+            </TouchableOpacity>
+            <Picker
+                selectedValue={selectedLanguage}
+                onValueChange={(itemValue, itemIndex) =>
+                    setSelectedLanguage(itemValue)
+                }>
+                <Picker.Item label="Java" value="java" />
+                <Picker.Item label="JavaScript" value="js" />
+            </Picker>
+            <ThemedText>省份：</ThemedText>
+
+            <Picker>
+                {cities.map(city => {
+                    const name: string = Object.keys(city)[0]
+                    return (
+                        <Picker.Item key={name} label={name} value={name} />
+                    )
+                })}
+            </Picker>
+
+            <ThemedText onPress={() => {
+                cities.map(city => {
+                    // Object.keys(city)[0]
+                    console.log(`city: ${JSON.stringify(Object.values(city)[0])}`)
+                })
+            }}>城市：</ThemedText>
+
         </ScrollView>
     )
 }
@@ -88,5 +151,12 @@ const styles = StyleSheet.create({
     },
     birthday: {
 
-    }
+    },
+    paragraph: {
+        fontSize: 18,
+        textAlign: 'center',
+    },
 })
+/*
+https://www.bilibili.com/video/BV1e5411L7VV?spm_id_from=333.788.player.switch&vd_source=fb5fc0881b2bb1a411566e5b2f1c7c7e&p=53
+*/

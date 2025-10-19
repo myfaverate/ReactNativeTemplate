@@ -25,6 +25,7 @@ import {
     ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Cat from './Cat';
+import HelloScreen from './src/hello/HelloSceen';
 
 type SectionProps = PropsWithChildren<{
     title: string;
@@ -82,6 +83,7 @@ function App(): React.JSX.Element {
             />
             <ScrollView
                 style={backgroundStyle}>
+                <HelloScreen/>
                 <View style={{ paddingRight: safePadding }}>
                     <Header />
                 </View>

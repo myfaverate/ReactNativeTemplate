@@ -1,0 +1,50 @@
+{
+    "status": "1",
+    "regeocode": {
+        "addressComponent": {
+            "city": [],
+            "province": "北京市",
+            "adcode": "110114",
+            "district": "昌平区",
+            "towncode": "110114008000",
+            "streetNumber": {
+                "number": "9号",
+                "location": "116.411555,40.079074",
+                "direction": "北",
+                "distance": "67.3089",
+                "street": "太平庄北街"
+            },
+            "country": "中国",
+            "township": "天通苑北街道",
+            "businessAreas": [
+                {
+                    "location": "116.400704,40.067954",
+                    "name": "东小口",
+                    "id": "110114"
+                },
+                {
+                    "location": "116.423305,40.071419",
+                    "name": "天通苑",
+                    "id": "110114"
+                },
+                {
+                    "location": "116.426188,40.076872",
+                    "name": " 天通北苑",
+                    "id": "110114"
+                }
+            ],
+            "building": {
+                "name": [],
+                "type": []
+            },
+            "neighborhood": {
+                "name": "天通西苑(三区)",
+                "type": "商务住宅;住宅区;住宅小区"
+            },
+            "citycode": "010"
+        },
+        "formatted_address": "北京市昌平区天通苑北街道天通西苑(三区) 金百川酒店(北京天通苑店)"
+    },
+    "info": "OK",
+    "infocode": "10000"
+}

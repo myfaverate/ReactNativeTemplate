@@ -424,9 +424,3 @@ const styles = StyleSheet.create({
         color: "#7d53ea",
     },
 });
-/**
- * https://github.com/expo/expo/issues/37064
- * https://github.com/react-native-community/discussions-and-proposals/issues/904
- * npx expo run:android --variant release
- * https://www.bilibili.com/video/BV1e5411L7VV?spm_id_from=333.788.player.switch&vd_source=fb5fc0881b2bb1a411566e5b2f1c7c7e&p=43
- */

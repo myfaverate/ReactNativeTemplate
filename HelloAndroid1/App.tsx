@@ -52,7 +52,7 @@ function Section({ children, title }: SectionProps): React.JSX.Element {
 
 function App(): React.JSX.Element {
     const isDarkMode = useColorScheme() === 'dark';
-
+    const [count, setCount] = React.useState(0);
     const backgroundStyle = {
         backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
     };
@@ -93,22 +93,20 @@ function App(): React.JSX.Element {
             <Text onPress={(event) => {
                 HelloModule.getName("zshhh")
             }}>按钮1</Text>
-            <Text onPress={(event) => {
+            <Text style={{
+                backgroundColor: "pink",
+                width: "10%",
+                padding: 10,
+            }} onPress={(event) => {
+                setCount(count + 1)
                 HelloModule.getNameWithPromise(false)
                     .then((response: string) => {
                         console.log(`response: ${response}`)
                     })
                     .catch((error: { code: String, message: string }) => {
-                        console.error(`${error.code}, ${error.message}`)
+                        console.log(`${error.code}, ${error.message}`)
                     })
-                HelloModule.getNameWithPromise(true)
-                    .then((response: string) => {
-                        console.log(`response: ${response}`)
-                    })
-                    .catch((error: { message: string }) => {
-                        console.error(error.message)
-                    })
-            }}>按钮2</Text>
+            }}>按钮{count}</Text>
             <Text onPress={(event) => {
                 const data = {
                     name: "zsh",

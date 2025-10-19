@@ -25,11 +25,18 @@ internal class HelloModule(reactApplicationContext: ReactApplicationContext) : R
 
     @ReactMethod
     fun getNameWithPromise(result: Boolean, promise: Promise){
-        if (result){
-            promise.resolve("success")
-        }else{
-            promise.reject("failure", Exception("Exit"))
-        }
+        Log.i(TAG, "getNameWithPromise -> result: $result")
+        // promise.resolve("success1")
+        // promise.resolve("success2")
+        promise.reject("failure1", Exception("Exit1"))
+        promise.reject("failure2", Exception("Exit2"))
+        // if (result){
+        //     promise.resolve("success")
+        //     promise.resolve("success")
+        // }else{
+        //     promise.reject("failure", Exception("Exit"))
+        //     promise.reject("failure", Exception("Exit"))
+        // }
     }
 
     /**
